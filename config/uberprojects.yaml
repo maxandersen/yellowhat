@@ -3,7 +3,7 @@
     scouts:
       - name: atomic-github
         type: scout-github.rb
-        access_token: f3b8031379b99f021ebc0c84511250128077cfb2 
+        access_token: 8f0cfc4d20f73ad5e9f094a197afae6f4aa0e5d3
         queries:
           - "user:projectatomic user:openshift is:open label:focus:devex"
 
