@@ -366,7 +366,7 @@ function getSources(objects) {
 }
 
 function groupIssuesByProject() {
-	var issues = get_demo_JSON()[0];
+	var issues = get_demo_JSON();
 
 	var projects = getProjects(issues);
 
@@ -381,7 +381,7 @@ function groupIssuesByProject() {
 }
 
 function groupIssuesBySource() {
-	var issues = get_demo_JSON()[0];
+	var issues = get_demo_JSON();
 
 	var projects = getSources(issues);
 
@@ -413,7 +413,7 @@ function groupIssuesBy(key) {
 }
 
 function groupIssuesByIssue() {
-	var issues = get_demo_JSON()[0];
+	var issues = get_demo_JSON();
 	var issueList = $("#main-list-panel-body");
 	var table = create_issue_table();
 	issues.sort(compareNativeId);
