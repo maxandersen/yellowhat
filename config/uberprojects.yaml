@@ -21,4 +21,4 @@
         password: drauc3er
         server: https://issues.jboss.org
         queries:
-          - "project in (JBDS, JBIDE) and resolution is EMPTY"
+          - "filter = ds_maint"
