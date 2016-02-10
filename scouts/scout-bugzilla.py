@@ -24,6 +24,13 @@ queryobj = bz.url_to_query(querystr)
 
 issues = bz.query(queryobj)
 
+statemap = {
+      'closed' : 'closed',
+      'done' : 'closed',
+      'resolved' : 'closed',
+      'coding in progress' : 'progress'
+    }
+    
 json_issues = []
 for bug in issues:
     jq = {} 
@@ -31,7 +38,17 @@ for bug in issues:
     jq["weburl"] = bug.weburl
     jq["summary"] = bug.summary
     jq["project"] = bug.product
-    jq["components"] = [{ "name" : bug.component }] 
+    jq["components"] = [{ "name" : bug.component }]
+
+    state = bug.status
+
+    jq["native-state"] = state
+    
+    if state.lower() in statemap:
+        jq["state"] = statemap[state.lower()]
+    else:
+        jq["state"] = "open"
+
     json_issues.append(jq)
 
 print json.dumps(json_issues, sort_keys=True, indent=4)
