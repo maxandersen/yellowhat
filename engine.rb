@@ -29,8 +29,10 @@ module YellowHat
             scout_password = scout["password"]
             scout_access_token = scout["access_token"]
 
+            env_var = "#{scout_name}".gsub("-", "")
+
             command_line = ""
-            command_line = "ruby scouts/#{scout_type} #{scout_access_token}" if scout_type.eql? 'scout-github.rb'
+            command_line = "ruby scouts/#{scout_type} #{ENV[env_var]}" if scout_type.eql? 'scout-github.rb'
             command_line = "python scouts/#{scout_type} -s #{scout_server} -u #{scout_username} -p #{scout_password} -q " if scout_type.eql? 'scout-jira.py'
             command_line = "python scouts/#{scout_type} -s #{scout_server} -u #{scout_username} -p #{scout_password} -q " if scout_type.eql? 'scout-bugzilla.py'
 
