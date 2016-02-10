@@ -56,9 +56,9 @@ for bug in data['issues']:
     jq["native_status"] = state
     
     if state.lower() in statemap:
-        jq["state"] = statemap[state.lower()]
+        jq["status"] = statemap[state.lower()]
     else:
-        jq["state"] = "open"
+        jq["status"] = "open"
 
     
     components = []
