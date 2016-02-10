@@ -4,6 +4,7 @@ require_relative 'engine.rb'
 
 engine = YellowHat::Engine.new (YellowHat::Config.new('config/uberprojects.yaml'))
 
+set :bind, '0.0.0.0'
 set :public_folder, File.dirname(__FILE__) + '/app'
 
 get '/' do
