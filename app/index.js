@@ -3,7 +3,7 @@ var url = "https://raw.githubusercontent.com/maxandersen/yellowhat/master/doc/sa
 function create_new_issue(obj) {
 	var issue = $("<tr>");
 
-	var cols = [obj.project, obj.native_id, obj.summary, obj.status, obj.source, obj[native_status], format_components(obj.components)];
+	var cols = [obj.project, obj.native_id, obj.summary, obj.status, obj.source, obj.native_status, format_components(obj.components)];
 
 	var i;
 	for (i = 0; i < cols.length; i++) {
