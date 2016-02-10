@@ -280,7 +280,11 @@ function getStatsPanel(projectName, objects) {
 	} else {
 		progressBar.addClass("progress-bar-warning");
 	}
-	progressBar.html(closedCount + " / " + issues.length);
+
+	var s = $("<span>");
+	s.html(closedCount + " / " + issues.length);
+	s.attr("style", "text-align:center; width: 100%; position: absolute;");
+	closedBar.append(s);
 	progressBar.attr("role", "progressbar");
 	progressBar.attr("aria-valuenow", closedCount);
 	progressBar.attr("aria-valuemin", "0");
@@ -325,7 +329,10 @@ function getIssuesStatsPanel(projectName, objects) {
 	} else {
 		progressBar.addClass("progress-bar-warning");
 	}
-	progressBar.html(closedCount + " / " + issues.length);
+	var s = $("<span>");
+	s.html(closedCount + " / " + issues.length);
+	s.attr("style", "text-align:center; width: 100%; position: absolute;");
+	closedBar.append(s);
 	progressBar.attr("role", "progressbar");
 	progressBar.attr("aria-valuenow", closedCount);
 	progressBar.attr("aria-valuemin", "0");
@@ -370,7 +377,10 @@ function getSourceStatsPanel(projectName, objects) {
 	} else {
 		progressBar.addClass("progress-bar-warning");
 	}
-	progressBar.html(closedCount + " / " + issues.length);
+	var s = $("<span>");
+	s.html(closedCount + " / " + issues.length);
+	s.attr("style", "text-align:center; width: 100%; position: absolute;");
+	closedBar.append(s);
 	progressBar.attr("role", "progressbar");
 	progressBar.attr("aria-valuenow", closedCount);
 	progressBar.attr("aria-valuemin", "0");
