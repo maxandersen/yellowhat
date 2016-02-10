@@ -30,9 +30,9 @@ LABEL io.k8s.description="Platform for building and running Ruby 2.2 application
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,ruby,ruby22"
 
-RUN INSTALL_PKGS="rh-ruby22 rh-ruby22-ruby-devel rh-ruby22-rubygem-rake v8314 rh-ruby22-rubygem-bundler nodejs010" && \
+RUN INSTALL_PKGS2="rh-ruby22 rh-ruby22-ruby-devel rh-ruby22-rubygem-rake v8314 rh-ruby22-rubygem-bundler nodejs010" && \
     yum install -y centos-release-scl && \
-    yum install -y --setopt=tsflags=nodocs  $INSTALL_PKGS && rpm -V $INSTALL_PKGS && \
+    yum install -y --setopt=tsflags=nodocs  $INSTALL_PKGS2 && rpm -V $INSTALL_PKGS2 && \
     yum clean all -y
 
 
