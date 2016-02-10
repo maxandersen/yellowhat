@@ -1,4 +1,5 @@
 - pdk:
+    name: "Power Development Kit"
     rh-bz:
       username: yellowhat
       queries:
