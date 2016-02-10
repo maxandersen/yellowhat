@@ -1,0 +1,14 @@
+- pdk:
+    rh-bz:
+      username: yellowhat
+      queries:
+        - "https://bugs.eclipse.org/basequery/bugs/buglist.cgi?status_whiteboard=RHT"
+
+    atomic-github:
+      username: yellowhat
+      queries:
+        - "user:projectatomic user:openshift is:open label:focus:devex "
+    jboss-jira:
+      username: yellowhat
+      queries:
+        - "project in (JBDS, JBIDE) and resolution is EMPTY"
