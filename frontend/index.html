@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Yellowhat Bug Consolidator</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="./js/index.js"></script>
-  </head>
-  <body>
-  </body>
+<head>
+	<meta charset="utf-8" />
+	<title>Yellowhat Bug Consolidator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+<body>
+	<div id="header">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Yellowhat Bug Consolidator</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<!-- <li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li> 
+					<li><a href="#">Page 3</a></li> --> 
+				</ul>
+			</div>
+
+		</nav>
+		
+	</div>
+	<div id="main-list" class="panel panel-default col-md-5 col-md-offset-3">
+		<div class="row">
+			<div class="panel-heading">
+			<div class="col-xs-2">
+			</div>
+				<div class="form-group col-xs-3">
+					<label for="sel1">Group By:</label>
+					<select class="form-control" id="sel1">
+						<option>Project</option>
+						<option>Component</option>
+						<option>Appetizers</option>
+						<option>Name</option>
+					</select>
+				</div>
+			</div>
+			</div>
+		<div id="main-list-panel-body" class="panel-body">
+		</div>
+	</div>
+</body>
 </html>
