@@ -182,7 +182,6 @@ function getProjectPanel(projectName, objects) {
 	showIssues.html("Show Issues");
 	showIssues.click(function() {
 		$('#' + projectName.replace(/\s/g, '') + "-table").slideToggle('fast');
-		console.log(projectName);
 	});
 
 	var table = create_issue_table();
@@ -268,16 +267,13 @@ function groupIssuesBy(key) {
 		case "Project":
 		    groupIssuesByProject();
 		    break;
+		case "Issue":
+			groupIssuesByIssue();
+			break;
 	}
 }
 
-$(document).ready(function() {
-	var i;
-	var groupBy = $("#group-by");
-	groupBy.change(function() {
-		groupIssuesBy(groupBy.val());
-	});
-
+function groupIssuesByIssue() {
 	var issues = get_demo_JSON();
 	var issueList = $("#main-list-panel-body");
 	var table = create_issue_table();
@@ -287,6 +283,16 @@ $(document).ready(function() {
 		table.append(create_new_issue(issue));
 	}
 	issueList.append(table);
+}
+
+$(document).ready(function() {
+	var i;
+	var groupBy = $("#group-by");
+	groupBy.change(function() {
+		groupIssuesBy(groupBy.val());
+	});
+
+	groupIssuesByIssue();
 	// for (i = 0; i < issues.length; i++) {
 	// 	var issue = issues[i];
 	// 	console.log(issue);
