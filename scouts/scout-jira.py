@@ -53,7 +53,7 @@ for bug in data['issues']:
     
     state = fields['status']['name']
 
-    jq["native_state"] = state
+    jq["native_status"] = state
     
     if state.lower() in statemap:
         jq["state"] = statemap[state.lower()]
