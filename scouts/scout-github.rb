@@ -24,6 +24,7 @@ query_result.items.each do |i|
       :id => "github_#{i.id}",
       :native_id => "#{i.number}",
       :status => i.state,
+      :native_status => i.state,
       :project => repo_to_project_name(i.repository_url),
       :summary => i.title,
       :weburl => i.html_url
