@@ -2,6 +2,7 @@ var url = "/uberprojects/pdk";
 
 function create_new_issue(obj) {
 	var issue = $("<tr>");
+	issue.addClass("issue-tr");
 
 	var cols = [obj.project, obj.native_id, obj.summary, obj.status, obj.source, obj.native_status, format_components(obj.components)];
 
@@ -493,8 +494,20 @@ $(document).ready(function() {
 	var i;
 	var groupBy = $("#group-by");
 	groupBy.change(function() {
+		$("#filter").val("");
 		groupIssuesBy(groupBy.val());
 	});
+
+
+    $('#filter').keyup(function () {
+    	console.log("working");
+        var rex = new RegExp($(this).val(), 'i');
+        $('.issue-tr').hide();
+        $('.issue-tr').filter(function () {
+            return rex.test($(this).text());
+        }).show();
+
+    });
 
 	groupIssuesByIssue();
 });
