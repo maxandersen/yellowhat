@@ -239,7 +239,7 @@ function getClosedIssueCount(objects) {
 	var count = 0;
 
 	var i = 0;
-	for (i = 0; i < objects.count; i++) {
+	for (i = 0; i < objects.length; i++) {
 		if (objects[i].status == "closed") {
 			count++
 		}
