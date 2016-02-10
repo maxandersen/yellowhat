@@ -31,8 +31,8 @@ module YellowHat
 
             command_line = ""
             command_line = "ruby scouts/#{scout_type} #{scout_access_token}" if scout_type.eql? 'scout-github.rb'
-            command_line = "python scouts/#{scout_type} -s #{scout_server} -q " if scout_type.eql? 'scout-jira.py'
-            command_line = "python scouts/#{scout_type} -s #{scout_server} -q " if scout_type.eql? 'scout-bugzilla.py'
+            command_line = "python scouts/#{scout_type} -s #{scout_server} -u #{scout_username} -p #{scout_password} -q " if scout_type.eql? 'scout-jira.py'
+            command_line = "python scouts/#{scout_type} -s #{scout_server} -u #{scout_username} -p #{scout_password} -q " if scout_type.eql? 'scout-bugzilla.py'
 
 
             queries = scout["queries"]
@@ -53,12 +53,14 @@ module YellowHat
                result = JSON.parse(@cache.read(cache_key))
                result.each {|res| res["source"] = scout_name}
 
+               puts "Scout #{scout_name} #{result.size}"
+
                results << result
 
             end
          end
 
-         return results.uniq{|d| d['id']}
+         return results #.uniq{|d| d["id"]}
       end
 
       def uber_projects()

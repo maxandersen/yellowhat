@@ -22,7 +22,7 @@ query_result.items.each do |i|
 
    issue = {
       :id => "github_#{i.id}",
-      :native_id => i.number,
+      :native_id => "#{i.number}",
       :status => i.state,
       :project => repo_to_project_name(i.repository_url),
       :summary => i.title,

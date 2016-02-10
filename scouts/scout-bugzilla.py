@@ -34,7 +34,7 @@ statemap = {
 json_issues = []
 for bug in issues:
     jq = {} 
-    jq["id"] = bug.id
+    jq["id"] = str(bug.id)
     jq["weburl"] = bug.weburl
     jq["summary"] = bug.summary
     jq["project"] = bug.product
