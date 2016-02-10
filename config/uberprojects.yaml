@@ -1,0 +1,21 @@
+- pdk:
+    name: "Power Development Kit"
+    scouts:
+      - name: atomic-github
+        type: scout-github.rb
+        access_token: dc86ab6af8b59720711c3ce2079bc96820b8fb0c
+        queries:
+          - "user:projectatomic user:openshift is:open label:focus:devex"
+
+      - name: rh-bz
+        type: scout-bugzilla.py
+        username: yellowhat
+        server: https://bugs.eclipse.org
+        queries:
+          - "status_whiteboard=RHT"
+
+      - name: jboss-jira
+        type: scout-jira.py
+        username: yellowhat
+        queries:
+          - "project in (JBDS, JBIDE) and resolution is EMPTY"
