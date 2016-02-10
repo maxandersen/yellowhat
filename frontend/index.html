@@ -31,23 +31,32 @@
 		</nav>
 		
 	</div>
-	<div id="main-list" class="panel panel-default col-md-5 col-md-offset-3">
-		<div class="row">
+	<div id="issues" class="col-md-5 col-md-offset-3">
+		<div id="main-list" class="panel panel-primary ">
 			<div class="panel-heading">
-			<div class="col-xs-2">
+				Issues
+				<!-- 				<-->
 			</div>
-				<div class="form-group col-xs-3">
-					<label for="sel1">Group By:</label>
-					<select class="form-control" id="sel1">
-						<option>Project</option>
-						<option>Component</option>
-						<option>Appetizers</option>
-						<option>Name</option>
-					</select>
-				</div>
+			<div id="main-list-panel-body" class="panel-body">
+				<table id="issue-table" class="table table-hover">
+				</table>
 			</div>
-			</div>
-		<div id="main-list-panel-body" class="panel-body">
+		</div>
+	</div>
+	<div id="driver-panel" class="panel panel-default, col-md-3 col-md-offset-18" style="position:fixed">
+		<div class="panel-heading">
+			Driver Panel
+		</div>
+		<div class="panel-body">
+			<div class="form-group col-xs-5">
+				<label for="sel1">Group By:</label>
+				<select id="group-by" class="form-control" id="sel1">
+					<option>Project</option>
+					<option>Component</option>
+					<option>Appetizers</option>
+					<option>Name</option>
+				</select>
+			</div> 
 		</div>
 	</div>
 </body>
