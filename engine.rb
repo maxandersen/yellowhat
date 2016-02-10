@@ -55,12 +55,12 @@ module YellowHat
 
                puts "Scout #{scout_name} #{result.size}"
 
-               results << result
+               results.push result
 
             end
          end
 
-         return results #.uniq{|d| d["id"]}
+         return results.flatten.uniq{|d| d["id"]}
       end
 
       def uber_projects()
