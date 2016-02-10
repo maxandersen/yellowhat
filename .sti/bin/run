@@ -1,0 +1,4 @@
+echo "Running from the STI run script \o/"
+cd /usr/src/app
+exec rackup
+

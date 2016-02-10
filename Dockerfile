@@ -22,11 +22,11 @@ RUN INSTALL_PKGS="python27 python27-python-devel python27-python-setuptools pyth
     
 USER 1001
 
-ADD /scouts /scouts
-RUN pip install -r /scouts/scout-bugzilla.reqs
+# ADD /scouts /scouts
+# RUN pip install -r /scouts/scout-bugzilla.reqs
 
-WORKDIR /scouts
+# WORKDIR /scouts
 
-CMD python scout-bugzilla.py
+# CMD python scout-bugzilla.py
 
 
