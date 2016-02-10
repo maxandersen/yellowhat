@@ -156,7 +156,7 @@ function getProjectPanel(projectName, objects) {
 	panelBody = $("<div>");
 
 	project.addClass("panel");
-	project.addClass("panel-primary");
+	project.addClass("panel-default");
 
 	panelHeading.addClass("panel-heading");
 	panelBody.addClass("panel-body");
@@ -274,6 +274,53 @@ function getStatsPanel(projectName, objects) {
 	progressBar.addClass("progress-bar");
 	if (closedCount == issues.length) {
 		progressBar.addClass("progress-bar-success");
+	} else if (closedCount == 0) {
+		progressBar.addClass("progress-bar-danger");
+	} else {
+		progressBar.addClass("progress-bar-warning");
+	}
+	progressBar.html(closedCount + " / " + issues.length);
+	progressBar.attr("role", "progressbar");
+	progressBar.attr("aria-valuenow", closedCount);
+	progressBar.attr("aria-valuemin", "0");
+	progressBar.attr("aria-valuemax", issues.length);
+	progressBar.attr("style", "min-width: 1em; width:" + closedCount / issues.length * 100 + "%;");
+
+	closedBar.append(progressBar);
+	panelBody.append(closedBar);
+
+	panelHeading.html("Statistics");
+	stats.append(panelHeading);
+	stats.append(panelBody);
+
+	return stats;
+}
+
+
+function getIssuesStatsPanel(projectName, objects) {
+	var issues = objects;
+
+	var panelHeading;
+	var panelBody;
+	var stats = $("<div>");
+	panelHeading = $("<div>");
+	panelBody = $("<div>");
+
+	stats.addClass("panel");
+	stats.addClass("panel-default");
+
+	panelHeading.addClass("panel-heading");
+	panelBody.addClass("panel-body");
+	var closedBar = $("<div>");
+	closedBar.addClass("progress");
+	var progressBar = $("<div>");
+	var closedCount = getClosedIssueCount(issues);
+
+	progressBar.addClass("progress-bar");
+	if (closedCount == issues.length) {
+		progressBar.addClass("progress-bar-success");
+	} else if (closedCount == 0) {
+		progressBar.addClass("progress-bar-danger");
 	} else {
 		progressBar.addClass("progress-bar-warning");
 	}
@@ -317,6 +364,8 @@ function getSourceStatsPanel(projectName, objects) {
 	progressBar.addClass("progress-bar");
 	if (closedCount == issues.length) {
 		progressBar.addClass("progress-bar-success");
+	} else if (closedCount == 0) {
+		progressBar.addClass("progress-bar-danger");
 	} else {
 		progressBar.addClass("progress-bar-warning");
 	}
@@ -421,6 +470,8 @@ function groupIssuesByIssue() {
 	var issues = get_demo_JSON();
 	var issueList = $("#main-list-panel-body");
 	var table = create_issue_table();
+	var stats = getIssuesStatsPanel("", issues);
+	issueList.append(stats);
 	issues.sort(compareNativeId);
 	for (i = 0; i < issues.length; i++) {
 		var issue = issues[i];
