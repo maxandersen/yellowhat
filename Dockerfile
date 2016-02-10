@@ -3,7 +3,7 @@ FROM centos
 # This image provides a Python 2.7 environment you can use to run your Python
 # applications.
 
-EXPOSE 8080
+EXPOSE 4567
 
 ENV PYTHON_VERSION=2.7 \
     PATH=$HOME/.local/bin/:$PATH \
