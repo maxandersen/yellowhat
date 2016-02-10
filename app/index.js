@@ -1,4 +1,4 @@
-var url = "https://raw.githubusercontent.com/maxandersen/yellowhat/master/doc/sample-issues.json";
+var url = "/uberprojects/pdk";
 
 function create_new_issue(obj) {
 	var issue = $("<tr>");
