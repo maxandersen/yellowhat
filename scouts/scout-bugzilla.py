@@ -34,7 +34,7 @@ statemap = {
 json_issues = []
 for bug in issues:
     jq = {}
-    jq["native-id"] = str(bug.id)
+    jq["native_id"] = str(bug.id)
     jq["weburl"] = bug.weburl
     jq["id"] = bug.weburl
     jq["summary"] = bug.summary
@@ -43,12 +43,12 @@ for bug in issues:
 
     state = bug.status
 
-    jq["native-state"] = state
+    jq["native_status"] = state
     
     if state.lower() in statemap:
-        jq["state"] = statemap[state.lower()]
+        jq["status"] = statemap[state.lower()]
     else:
-        jq["state"] = "open"
+        jq["status"] = "open"
 
     json_issues.append(jq)
 
