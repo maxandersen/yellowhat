@@ -1,15 +1,14 @@
-/**
- * Creates a TR
- */
+var url = "https://raw.githubusercontent.com/maxandersen/yellowhat/master/doc/sample-issues.json";
+
 function create_new_issue(obj) {
 	var issue = $("<tr>");
 
-	var cols = [obj.project, obj.id, format_components(obj.components), obj.summary];
+	var cols = [obj.project, obj.native_id, obj.summary, obj.status, obj.source];
 
 	var i;
 	for (i = 0; i < cols.length; i++) {
 		var td = $("<td>");
-		if (isNum(cols[i])) {
+		if (i == 1) {
 			var link = $("<a>");
 			link.html(cols[i]);
 			link.attr("href", obj.weburl);
@@ -19,27 +18,6 @@ function create_new_issue(obj) {
 		}
 		issue.append(td);
 	}
-
-
-	// var panelHeading;
-	// var panelBody;
-	// issue = $("<div>");
-	// panelHeading = $("<div>");
-	// panelBody = $("<div>");
-
-	// issue.addClass("panel");
-	// issue.addClass("panel-primary");
-
-	// panelHeading.addClass("panel-heading");
-	// panelBody.addClass("panel-body");
-
-	// var table = create_issue_table(obj);
-
-	// panelHeading.html(obj.summary);
-	// panelBody.append(table);
-
-	// issue.append(panelHeading);
-	// issue.append(panelBody);
 
 	return issue;
 }
@@ -54,19 +32,6 @@ function create_issue_table(obj) {
 	var tbody = $("<tbody>");
 	tbody.append(create_table_header());
 	table.append(tbody);
-
-
-
-	// var project = create_row("Project", obj.project, false);
-	// var components = create_row("Components", format_components(obj.components), false);
-	// var summary = create_row("Summary", obj.summary, false);
-	// var bId = create_row("ID", obj.id);
-	// var weburl = create_row("Web URL", obj.weburl, true);
-	// tbody.append(project).append(summary).append(components).append(weburl);
-	// table.append(tbody);
-	// table.addClass("table");
-	// table.addClass("table-hover");
-	
 	return table;
 }
 
@@ -75,7 +40,7 @@ function create_table_header() {
 	// var theader = $("<thead>");
 	var tr = $("<tr>");
 
-	var cols = ["Project", "Id", "Components", "Summary"]
+	var cols = ["Project", "Id", "Summary", "Status", "Source"]
 
 	var i;
 	for (i = 0; i < cols.length; i++) {
@@ -92,15 +57,15 @@ function create_table_header() {
 	return tr;
 }
 
-function format_components(components) {
-	var i;
-	var listString = "";
-	for (i = 0; i < components.length; i++) {
-		listString = listString + ", " + components[i].name;
-	}
-	listString = listString.substring(1);
-	return listString;
-}
+// function format_components(components) {
+// 	var i;
+// 	var listString = "";
+// 	for (i = 0; i < components.length; i++) {
+// 		listString = listString + ", " + components[i].name;
+// 	}
+// 	listString = listString.substring(1);
+// 	return listString;
+// }
 
 function create_row(first, second, isLink) {
 	var row = $("<tr>");
@@ -126,7 +91,7 @@ function get_demo_JSON() {
 	var json;
 
     $.ajax({
-        url: 'https://raw.githubusercontent.com/maxandersen/yellowhat/6a8a8e85ee831c19e7b9dc78c47582894858ed1d/doc/sample-issues.json',
+        url: url,
         dataType: 'json',
         async: false,
         success: function (data) {
@@ -162,6 +127,20 @@ function getProjectIssues(project, objects) {
 	return l;
 }
 
+function getSourceIssues(source, objects) {
+
+	var i;
+	var l = [];
+	for (i = 0; i < objects.length; i++) {
+		if (objects[i].source == source) {
+			l.push(objects[i])
+		}
+	}
+
+	return l;
+}
+
+
 function getProjectPanel(projectName, objects) {
 	var issues = getProjectIssues(projectName, objects);
 
@@ -181,18 +160,22 @@ function getProjectPanel(projectName, objects) {
 	showIssues.addClass("btn").addClass("btn-default");
 	showIssues.html("Show Issues");
 	showIssues.click(function() {
-		$('#' + projectName.replace(/\s/g, '') + "-table").slideToggle('fast');
+		console.log(projectName.replace(/\s/g, '').replace(/\//g, ''));
+		$('#' + projectName.replace(/\s/g, '').replace(/\//g, '') + "-table").slideToggle('fast');
 	});
 
 	var table = create_issue_table();
 	table.hide();
-	table.attr("id", projectName.replace(/\s/g, '') + "-table");
+	table.attr("id", projectName.replace(/\s/g, '').replace(/\//g, '') + "-table");
 	for (i = 0; i < issues.length; i++) {
 		var issue = issues[i];
 		table.append(create_new_issue(issue));
 	}
 
+	var statsPanel = getStatsPanel(projectName, objects);
+
 	panelHeading.html(projectName);
+	panelBody.append(statsPanel);
 	panelBody.append(showIssues);
 	panelBody.append(table);
 
@@ -203,8 +186,8 @@ function getProjectPanel(projectName, objects) {
 }
 
 
-function getStatsPanel() {
-	var issues = getProjectIssues(projectName, objects);
+function getSourcePanel(projectName, objects) {
+	var issues = getSourceIssues(projectName, objects);
 
 	var panelHeading;
 	var panelBody;
@@ -213,17 +196,142 @@ function getStatsPanel() {
 	panelBody = $("<div>");
 
 	project.addClass("panel");
-	project.addClass("panel-default");
+	project.addClass("panel-primary");
 
 	panelHeading.addClass("panel-heading");
 	panelBody.addClass("panel-body");
+	var showIssues = $("<button>");
+	showIssues.attr("type", "button");
+	showIssues.addClass("btn").addClass("btn-default");
+	showIssues.html("Show Issues");
+	showIssues.click(function() {
+		console.log(projectName.replace(/\s/g, '').replace(/\//g, ''));
+		$('#' + projectName.replace(/\s/g, '').replace(/\//g, '') + "-table").slideToggle('fast');
+	});
 
-	panelHeading.html("Statistics");
+	var table = create_issue_table();
+	table.hide();
+	table.attr("id", projectName.replace(/\s/g, '').replace(/\//g, '') + "-table");
+	for (i = 0; i < issues.length; i++) {
+		var issue = issues[i];
+		table.append(create_new_issue(issue));
+	}
+
+	var statsPanel = getSourceStatsPanel(projectName, objects);
+
+	panelHeading.html(projectName);
+	panelBody.append(statsPanel);
+	panelBody.append(showIssues);
 	panelBody.append(table);
 
 	project.append(panelHeading);
 	project.append(panelBody);
+
+	return project;
 }
+
+function getClosedIssueCount(objects) {
+	var count = 0;
+
+	var i = 0;
+	for (i = 0; i < objects.count; i++) {
+		if (objects[i].status == "closed") {
+			count++
+		}
+	}
+
+	return count;
+}
+
+function getPercentage(closed, total) {
+	return closed / total * 100
+}
+
+function getStatsPanel(projectName, objects) {
+	var issues = getProjectIssues(projectName, objects);
+
+	var panelHeading;
+	var panelBody;
+	var stats = $("<div>");
+	panelHeading = $("<div>");
+	panelBody = $("<div>");
+
+	stats.addClass("panel");
+	stats.addClass("panel-default");
+
+	panelHeading.addClass("panel-heading");
+	panelBody.addClass("panel-body");
+	var closedBar = $("<div>");
+	closedBar.addClass("progress");
+	var progressBar = $("<div>");
+	var closedCount = getClosedIssueCount(issues);
+
+	progressBar.addClass("progress-bar");
+	if (closedCount == issues.length) {
+		progressBar.addClass("progress-bar-success");
+	} else {
+		progressBar.addClass("progress-bar-warning");
+	}
+	progressBar.html(closedCount + " / " + issues.length);
+	progressBar.attr("role", "progressbar");
+	progressBar.attr("aria-valuenow", closedCount);
+	progressBar.attr("aria-valuemin", "0");
+	progressBar.attr("aria-valuemax", issues.length);
+	progressBar.attr("style", "min-width: 1em; width:" + closedCount / issues.length * 100 + "%;");
+
+	closedBar.append(progressBar);
+	panelBody.append(closedBar);
+
+	panelHeading.html("Statistics");
+	stats.append(panelHeading);
+	stats.append(panelBody);
+
+	return stats;
+}
+
+
+function getSourceStatsPanel(projectName, objects) {
+	var issues = getSourceIssues(projectName, objects);
+
+	var panelHeading;
+	var panelBody;
+	var stats = $("<div>");
+	panelHeading = $("<div>");
+	panelBody = $("<div>");
+
+	stats.addClass("panel");
+	stats.addClass("panel-default");
+
+	panelHeading.addClass("panel-heading");
+	panelBody.addClass("panel-body");
+	var closedBar = $("<div>");
+	closedBar.addClass("progress");
+	var progressBar = $("<div>");
+	var closedCount = getClosedIssueCount(issues);
+
+	progressBar.addClass("progress-bar");
+	if (closedCount == issues.length) {
+		progressBar.addClass("progress-bar-success");
+	} else {
+		progressBar.addClass("progress-bar-warning");
+	}
+	progressBar.html(closedCount + " / " + issues.length);
+	progressBar.attr("role", "progressbar");
+	progressBar.attr("aria-valuenow", closedCount);
+	progressBar.attr("aria-valuemin", "0");
+	progressBar.attr("aria-valuemax", issues.length);
+	progressBar.attr("style", "min-width: 2em; width:" + closedCount / issues.length * 100 + "%;");
+
+	closedBar.append(progressBar);
+	panelBody.append(closedBar);
+
+	panelHeading.html("Statistics");
+	stats.append(panelHeading);
+	stats.append(panelBody);
+
+	return stats;
+}
+
 
 function inArray(item, array) {
     'use strict';
@@ -244,8 +352,21 @@ function getProjects(objects) {
 	return projects;
 }
 
+function getSources(objects) {
+	var projects = [];
+
+	var i;
+	for (i = 0; i < objects.length; i++) {
+		if (!inArray(objects[i].source, projects)) {
+			projects.push(objects[i].source);
+		}
+	}
+
+	return projects;
+}
+
 function groupIssuesByProject() {
-	var issues = get_demo_JSON();
+	var issues = get_demo_JSON()[0];
 
 	var projects = getProjects(issues);
 
@@ -254,6 +375,21 @@ function groupIssuesByProject() {
 
 	for (i = 0; i < projects.length; i++) {
 		var projectPanel = getProjectPanel(projects[i], issues);
+		issueList.append(projectPanel);
+	}
+
+}
+
+function groupIssuesBySource() {
+	var issues = get_demo_JSON()[0];
+
+	var projects = getSources(issues);
+
+	var i;
+	var issueList = $("#main-list-panel-body");
+
+	for (i = 0; i < projects.length; i++) {
+		var projectPanel = getSourcePanel(projects[i], issues);
 		issueList.append(projectPanel);
 	}
 
@@ -270,19 +406,31 @@ function groupIssuesBy(key) {
 		case "Issue":
 			groupIssuesByIssue();
 			break;
+		case "Source":
+		    groupIssuesBySource();
+		    break;
 	}
 }
 
 function groupIssuesByIssue() {
-	var issues = get_demo_JSON();
+	var issues = get_demo_JSON()[0];
 	var issueList = $("#main-list-panel-body");
 	var table = create_issue_table();
-
+	issues.sort(compareNativeId);
 	for (i = 0; i < issues.length; i++) {
 		var issue = issues[i];
 		table.append(create_new_issue(issue));
 	}
 	issueList.append(table);
+}
+
+function compareNativeId(a, b) {
+	if (parseInt(a.native_id) < parseInt(b.native_id)) {
+		return -1
+	} else if (parseInt(a.native_id) > parseInt(b.native_id)) {
+		return 1;
+	}
+	return 0;
 }
 
 $(document).ready(function() {
@@ -293,10 +441,4 @@ $(document).ready(function() {
 	});
 
 	groupIssuesByIssue();
-	// for (i = 0; i < issues.length; i++) {
-	// 	var issue = issues[i];
-	// 	console.log(issue);
-	// 	var issue = create_new_issue(issue);
-	// 	issueList.append(issue);
-	// }
 });
