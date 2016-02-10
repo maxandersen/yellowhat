@@ -17,8 +17,8 @@
 
       - name: jboss-jira
         type: scout-jira.py
-        username: jiralint
-        password: drauc3er
+        username: yellowhatuberproject
+        password: yhat1002
         server: https://issues.jboss.org
         queries:
           - "filter = ds_maint"
