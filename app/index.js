@@ -3,7 +3,7 @@ var url = "https://raw.githubusercontent.com/maxandersen/yellowhat/master/doc/sa
 function create_new_issue(obj) {
 	var issue = $("<tr>");
 
-	var cols = [obj.project, obj.native_id, obj.summary, obj.status, obj.source];
+	var cols = [obj.project, obj.native_id, obj.summary, obj.status, obj.source, obj[native_status], format_components(obj.components)];
 
 	var i;
 	for (i = 0; i < cols.length; i++) {
@@ -40,7 +40,7 @@ function create_table_header() {
 	// var theader = $("<thead>");
 	var tr = $("<tr>");
 
-	var cols = ["Project", "Id", "Summary", "Status", "Source"]
+	var cols = ["Project", "Id", "Summary", "Status", "Source", "Native Status", "Components"];
 
 	var i;
 	for (i = 0; i < cols.length; i++) {
@@ -57,15 +57,20 @@ function create_table_header() {
 	return tr;
 }
 
-// function format_components(components) {
-// 	var i;
-// 	var listString = "";
-// 	for (i = 0; i < components.length; i++) {
-// 		listString = listString + ", " + components[i].name;
-// 	}
-// 	listString = listString.substring(1);
-// 	return listString;
-// }
+function format_components(components) {
+
+	if (components == undefined) {
+		return "";
+	}
+
+	var i;
+	var listString = "";
+	for (i = 0; i < components.length; i++) {
+		listString = listString + ", " + components[i].name;
+	}
+	listString = listString.substring(1);
+	return listString;
+}
 
 function create_row(first, second, isLink) {
 	var row = $("<tr>");
