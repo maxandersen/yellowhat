@@ -1,4 +1,4 @@
-FROM openshift/base-centos7
+FROM centos/ruby-22-centos7
 
 # This image provides a Python 2.7 environment you can use to run your Python
 # applications.
