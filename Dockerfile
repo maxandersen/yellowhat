@@ -28,6 +28,6 @@ WORKDIR /yellowhat
 
 RUN bundle install
 
-CMD python scout-bugzilla.py -s https://bugs.eclipse.org -q status_whiteboard=RHT
+CMD python scout/scout-bugzilla.py -s https://bugs.eclipse.org -q status_whiteboard=RHT
 
 
