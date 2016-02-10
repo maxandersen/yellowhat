@@ -37,10 +37,10 @@ statemap = {
     
 for bug in data['issues']:
     jq = {}
-    jq["native-id"] = bug['key']
+    jq["native_id"] = bug['key']
 
     o = urlparse(bug['self'])
-    url = o.scheme + "://" + o.netloc + "/browse/" + jq['native-id']
+    url = o.scheme + "://" + o.netloc + "/browse/" + jq['native_id']
 
     jq["weburl"] = url
     jq["id"] = url
@@ -53,7 +53,7 @@ for bug in data['issues']:
     
     state = fields['status']['name']
 
-    jq["native-state"] = state
+    jq["native_state"] = state
     
     if state.lower() in statemap:
         jq["state"] = statemap[state.lower()]
