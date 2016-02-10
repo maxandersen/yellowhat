@@ -1,0 +1,827 @@
+[
+    {
+        "components": [
+            {
+                "name": "UI"
+            }
+        ], 
+        "id": 90292, 
+        "project": "Platform", 
+        "summary": "[EditorMgmt] Default editor for unknown extensions", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=90292"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.sse"
+            }
+        ], 
+        "id": 310411, 
+        "project": "WTP Source Editing", 
+        "summary": "Toggling of breakpoints should not happen on the UI thread", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=310411"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 359436, 
+        "project": "JSDT", 
+        "summary": "Investigate defining browsers / runtimes to use for debugging", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=359436"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.html"
+            }
+        ], 
+        "id": 443097, 
+        "project": "WTP Source Editing", 
+        "summary": "Ignore undefined HTML attributes, elements validation with extension point", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=443097"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 459732, 
+        "project": "JSDT", 
+        "summary": "Bower IDE contribution", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=459732"
+    }, 
+    {
+        "components": [
+            {
+                "name": "ui"
+            }
+        ], 
+        "id": 464535, 
+        "project": "m2e", 
+        "summary": "Support for Smart Import mechanism", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=464535"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 467555, 
+        "project": "Linux Tools", 
+        "summary": "Support multiple registries", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=467555"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 467558, 
+        "project": "Linux Tools", 
+        "summary": "Dockerfile editor", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=467558"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 469819, 
+        "project": "Linux Tools", 
+        "summary": "support docker ignore", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=469819"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 470328, 
+        "project": "JSDT", 
+        "summary": "Extension point to delegate JSDoc \"Generate Element Comment\"", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=470328"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.sse"
+            }
+        ], 
+        "id": 471820, 
+        "project": "WTP Source Editing", 
+        "summary": "[contribution] Eclipse WTP JSON Editor", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=471820"
+    }, 
+    {
+        "components": [
+            {
+                "name": "UI"
+            }
+        ], 
+        "id": 472614, 
+        "project": "Platform", 
+        "summary": "Migrate Smart Project Importer to Eclipse Platform UI", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=472614"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Web"
+            }
+        ], 
+        "id": 473559, 
+        "project": "JSDT", 
+        "summary": "[language support] Add support for ECMAScript 2015", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=473559"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 476387, 
+        "project": "Linux Tools", 
+        "summary": "Allow for connection settings edition", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=476387"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 477030, 
+        "project": "JSDT", 
+        "summary": "[ES6] Support for ECMAScript 6 syntax coloration", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=477030"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 477031, 
+        "project": "JSDT", 
+        "summary": "[ES6] Support for ECMAScript 6 validation", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=477031"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 479336, 
+        "project": "Linux Tools", 
+        "summary": "Add \"Exec\" command on a container, using Eclipse Terminal", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=479336"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 479466, 
+        "project": "JSDT", 
+        "summary": "Support node.js debugging", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=479466"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 479592, 
+        "project": "Linux Tools", 
+        "summary": "Support for Docker Compose", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=479592"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 481344, 
+        "project": "JSDT", 
+        "summary": "JSDT should support the use of sourcevalidation extension point", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=481344"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 481629, 
+        "project": "Linux Tools", 
+        "summary": "Pushing images fail (missing credentials)", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=481629"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 481706, 
+        "project": "JSDT", 
+        "summary": "Update or replace JSDT parser to support ES6", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=481706"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 481828, 
+        "project": "JSDT", 
+        "summary": "Node.js-based JavaScript Dependency Management Tools: bower, npm", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=481828"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 482054, 
+        "project": "JSDT", 
+        "summary": "Support for Unit testing similar to JDT Junit", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=482054"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 482841, 
+        "project": "JSDT", 
+        "summary": "JSDT to utilize org.eclipse.wst.validation.validatorV2 extension point", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=482841"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 483398, 
+        "project": "JSDT", 
+        "summary": "JavaScript Task Runner: grunt", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=483398"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 483399, 
+        "project": "JSDT", 
+        "summary": "Need to add JavaScript  Build System: gulp", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=483399"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 483678, 
+        "project": "Linux Tools", 
+        "summary": "[docker image search] provide API to trigger search when Wizard opens", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=483678"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 483679, 
+        "project": "Linux Tools", 
+        "summary": "[docker image search] make tag selection optional", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=483679"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 483680, 
+        "project": "Linux Tools", 
+        "summary": "[docker image search] search results ignore repo when searching for repo/imagename", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=483680"
+    }, 
+    {
+        "components": [
+            {
+                "name": "incubator"
+            }
+        ], 
+        "id": 484068, 
+        "project": "WTP Incubator", 
+        "summary": "Contribution of Smart Import extension for Java EE development", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484068"
+    }, 
+    {
+        "components": [
+            {
+                "name": "UI"
+            }
+        ], 
+        "id": 484105, 
+        "project": "Platform", 
+        "summary": "Editor and file-association registry to listen to Extension Registry changes", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484105"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 484218, 
+        "project": "JSDT", 
+        "summary": "Create icons for bower/npm utilities' wizards and actions", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484218"
+    }, 
+    {
+        "components": [
+            {
+                "name": "UI"
+            }
+        ], 
+        "id": 484347, 
+        "project": "Platform", 
+        "summary": "[JFace] MessageDialog should use Link instead of Text", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484347"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 484418, 
+        "project": "JSDT", 
+        "summary": "Need to improve js tools (npm / bower) launch", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484418"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 484597, 
+        "project": "JSDT", 
+        "summary": "Launch configuration for  node.js applications", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484597"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 484598, 
+        "project": "JSDT", 
+        "summary": "Disable TypeBinding and deprecate internal ast model", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484598"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.sse"
+            }
+        ], 
+        "id": 484762, 
+        "project": "WTP Source Editing", 
+        "summary": "Add JSON Editor contribution into maven build and include into features", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=484762"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 485188, 
+        "project": "JSDT", 
+        "summary": "Initial contribution of Google Chrome Dev Tools", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485188"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Runtime"
+            }
+        ], 
+        "id": 485227, 
+        "project": "Platform", 
+        "summary": "Content-type based file/editor associations registry isn't dynamic (reacting to extension addition)", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485227"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Docker"
+            }
+        ], 
+        "id": 485350, 
+        "project": "Linux Tools", 
+        "summary": "SWTException: Widget is disposed when DockerExplorer view is closed", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485350"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 485603, 
+        "project": "JSDT", 
+        "summary": "Generate Development Web Inspector Protocol Backend Plugin for Chrome Canary", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485603"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 485604, 
+        "project": "JSDT", 
+        "summary": "Generate Web Inspector Protocol Backend Plugin v1.1 for Chrome Stable", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485604"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 485605, 
+        "project": "JSDT", 
+        "summary": "Include JavaScript Debugger for Chrome/Chromium into build", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485605"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 485699, 
+        "project": "JSDT", 
+        "summary": "Bump JSDT feature/plugin versions to 2.0", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485699"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 485701, 
+        "project": "WTP Source Editing", 
+        "summary": "JSON Schema extension for JSON editor", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=485701"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486057, 
+        "project": "JSDT", 
+        "summary": "Hide Chromium JavaScript Debugger Virtual FS from Eclipse Workspace", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486057"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486058, 
+        "project": "JSDT", 
+        "summary": "Browser tab should be locked when VM suspended at break point in Chromium Debugger", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486058"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486061, 
+        "project": "JSDT", 
+        "summary": "Translate breakpoints from .js files to Chromium/Node V8 JavaScript Engine", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486061"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486065, 
+        "project": "JSDT", 
+        "summary": "Support Chromium based browser debugging", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486065"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486066, 
+        "project": "JSDT", 
+        "summary": "Launch Configuration for Browser based applications", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486066"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486074, 
+        "project": "JSDT", 
+        "summary": "JavaScript Debugger integration tests for chromium based browsers", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486074"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486075, 
+        "project": "JSDT", 
+        "summary": "JavaScript Debugger integration tests for node.js", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486075"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486232, 
+        "project": "JSDT", 
+        "summary": "Need to add Launch Configuration for gulp", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486232"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486233, 
+        "project": "JSDT", 
+        "summary": "Need to add Launch Configuration for grunt", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486233"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486240, 
+        "project": "JSDT", 
+        "summary": "Need to add navigation from Project Explorer to Editor for gulp tasks", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486240"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486241, 
+        "project": "JSDT", 
+        "summary": "Need to add navigation from Project Explorer to Editor for grunt tasks", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486241"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486340, 
+        "project": "JSDT", 
+        "summary": "[bower] [npm] Bower / npm tools stream output to the console only after command execution", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486340"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486492, 
+        "project": "JSDT", 
+        "summary": "[grunt] Need to contribute grunt tasks to Outline view via CNF", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486492"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486493, 
+        "project": "JSDT", 
+        "summary": "[gulp] Need to contribute gulp tasks to Outline view via CNF", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486493"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 486504, 
+        "project": "JSDT", 
+        "summary": "Rename Chome Developer Tools features and include them into main JSDT Debug feature", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486504"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486519, 
+        "project": "JSDT", 
+        "summary": "BowerPlugin.PLUGIN_ID is incorrect", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486519"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 486524, 
+        "project": "WTP Source Editing", 
+        "summary": "JSON Editor formatter is broken", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486524"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486776, 
+        "project": "JSDT", 
+        "summary": "Refactor JSDT Code Completion", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486776"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 486849, 
+        "project": "WTP Source Editing", 
+        "summary": "npm dependency content assist is broken", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486849"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 486860, 
+        "project": "WTP Source Editing", 
+        "summary": "Sync of IJSONModel with editor should be improved/fixed", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486860"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 486861, 
+        "project": "WTP Source Editing", 
+        "summary": "Synchronization problems between IJSONModel and the editor.", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486861"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486944, 
+        "project": "JSDT", 
+        "summary": "Create JSDT .target File", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486944"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 486956, 
+        "project": "JSDT", 
+        "summary": "Gulp / Grunt support - first iteration", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=486956"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 487036, 
+        "project": "WTP Source Editing", 
+        "summary": "JSON Editor missing some icon(s?)", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=487036"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 487038, 
+        "project": "WTP Source Editing", 
+        "summary": "JSON Editor feature is uncategorized in the update site", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=487038"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 487050, 
+        "project": "WTP Source Editing", 
+        "summary": "JSON Editor feature and plugins provide wrong details", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=487050"
+    }, 
+    {
+        "components": [
+            {
+                "name": "Debug"
+            }
+        ], 
+        "id": 487055, 
+        "project": "JSDT", 
+        "summary": "Improve the information shown while hovering over a variable during a JS debugging session", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=487055"
+    }, 
+    {
+        "components": [
+            {
+                "name": "wst.json"
+            }
+        ], 
+        "id": 487168, 
+        "project": "WTP Source Editing", 
+        "summary": "o.e.w.j.c.i.d.JSONPairImpl cannot be cast to o.e.w.j.c.i.d.JSONObjectImpl", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=487168"
+    }, 
+    {
+        "components": [
+            {
+                "name": "General"
+            }
+        ], 
+        "id": 487323, 
+        "project": "JSDT", 
+        "summary": "Create icons for gulp/grunt utilities' wizards and actions", 
+        "weburl": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=487323"
+    }
+]
