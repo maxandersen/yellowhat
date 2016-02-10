@@ -22,10 +22,14 @@ RUN gem install bundler
 
 RUN pip install python-bugzilla
 
+RUN groupadd -r yellow -g 1000 && useradd -u 1000 -r -g yellow -m -d /yellowhat -s /sbin/nologin -c "Yellow user" yellow && \
+    chmod 755 /yellowhat
+
 ADD . /yellowhat
 
 WORKDIR /yellowhat
+RUN chown -R yellow:yellow .
+USER yellow
 
 RUN bundle install
-
 CMD ruby server.rb
