@@ -22,10 +22,6 @@ function create_new_issue(obj) {
 
     return issue;
 }
-function isNum(val) {
-    var isnum = /^\d+$/.test(val);
-    return isnum;
-}
 
 function create_issue_table(obj) {
     var table = $("<table>");
@@ -52,13 +48,12 @@ function create_table_header() {
         tr.append(th);
     }
 
-    // theader.append(tr);
     return tr;
 }
 
 function format_components(components) {
 
-    if (components == undefined) {
+    if (components === undefined) {
         return "";
     }
 
@@ -69,26 +64,6 @@ function format_components(components) {
     }
     listString = listString.substring(1);
     return listString;
-}
-
-function create_row(first, second, isLink) {
-    var row = $("<tr>");
-    var firstCell = $("<td>");
-    var secondCell = $("<td>");
-    var boldThing = $("<b>");
-    boldThing.html(first);
-    firstCell.append(boldThing);
-    if (isLink) {
-        var link = $("<a>");
-        link.html(second);
-        link.attr("href", second)
-        secondCell.append(link);
-    } else {
-        secondCell.html(second);
-    }
-    
-    row.append(firstCell).append(secondCell);
-    return row;
 }
 
 function get_demo_JSON() {
@@ -109,53 +84,35 @@ function get_demo_JSON() {
     return json;
 }
 
-
-function compareByProject(a, b) {
-    return a.project < b.project;
-}
-
-function compareById(a, b) {
-    return a.id < b.id;
-}
-
 function getProjectIssues(project, objects) {
-
-    var i;
-    var l = [];
-    for (i = 0; i < objects.length; i++) {
-        if (objects[i].project == project) {
-            l.push(objects[i])
-        }
-    }
-
-    return l;
+    return objects.filter(function(val) {
+        return val.project == project;
+    });
 }
 
 function getSourceIssues(source, objects) {
-
-    var i;
-    var l = [];
-    for (i = 0; i < objects.length; i++) {
-        if (objects[i].source == source) {
-            l.push(objects[i])
-        }
-    }
-
-    return l;
+    return objects.filter(function(val) {
+        return val.source == source;
+    });
 }
 
+function getProjectPanel(groupTitle, objects) {
+    var issues = getProjectIssues(groupTitle, objects);
+    return getGroupedPanel(groupTitle, issues);
+}
 
-function getProjectPanel(projectName, objects) {
-    var issues = getProjectIssues(projectName, objects);
+function getSourcePanel(groupTitle, objects) {
+    var issues = getSourceIssues(groupTitle, objects);
+    return getGroupedPanel(groupTitle, issues);
+}
 
-    var panelHeading;
-    var panelBody;
-    var project = $("<div>");
-    panelHeading = $("<div>");
-    panelBody = $("<div>");
+function getGroupedPanel(panel_name, issues) {
+	var panelHeading = $("<div>");
+    var panelBody = $("<div>");
+    var panel = $("<div>");
 
-    project.addClass("panel");
-    project.addClass("panel-default");
+    panel.addClass("panel");
+    panel.addClass("panel-default");
 
     panelHeading.addClass("panel-heading");
     panelBody.addClass("panel-body");
@@ -164,96 +121,39 @@ function getProjectPanel(projectName, objects) {
     showIssues.addClass("btn").addClass("btn-default");
     showIssues.html("Show Issues");
     showIssues.click(function() {
-        console.log(projectName.replace(/\s/g, '').replace(/\//g, ''));
-        $('#' + projectName.replace(/\s/g, '').replace(/\//g, '') + "-table").slideToggle('fast');
+        $('#' + panel_name.replace(/\s/g, '').replace(/\//g, '') + "-table").slideToggle('fast');
     });
 
     var table = create_issue_table();
     table.hide();
-    table.attr("id", projectName.replace(/\s/g, '').replace(/\//g, '') + "-table");
+    table.attr("id", panel_name.replace(/\s/g, '').replace(/\//g, '') + "-table");
     for (i = 0; i < issues.length; i++) {
         var issue = issues[i];
         table.append(create_new_issue(issue));
     }
 
-    var statsPanel = getStatsPanel(projectName, objects);
+    var statsPanel = getStatsPanel(panel_name, issues);
 
-    panelHeading.html(projectName);
+    panelHeading.html(panel_name);
     panelBody.append(statsPanel);
     panelBody.append(showIssues);
     panelBody.append(table);
 
-    project.append(panelHeading);
-    project.append(panelBody);
+    panel.append(panelHeading);
+    panel.append(panelBody);
 
-    return project;
-}
-
-
-function getSourcePanel(projectName, objects) {
-    var issues = getSourceIssues(projectName, objects);
-
-    var panelHeading;
-    var panelBody;
-    var project = $("<div>");
-    panelHeading = $("<div>");
-    panelBody = $("<div>");
-
-    project.addClass("panel");
-    project.addClass("panel-primary");
-
-    panelHeading.addClass("panel-heading");
-    panelBody.addClass("panel-body");
-    var showIssues = $("<button>");
-    showIssues.attr("type", "button");
-    showIssues.addClass("btn").addClass("btn-default");
-    showIssues.html("Show Issues");
-    showIssues.click(function() {
-        console.log(projectName.replace(/\s/g, '').replace(/\//g, ''));
-        $('#' + projectName.replace(/\s/g, '').replace(/\//g, '') + "-table").slideToggle('fast');
-    });
-
-    var table = create_issue_table();
-    table.hide();
-    table.attr("id", projectName.replace(/\s/g, '').replace(/\//g, '') + "-table");
-    for (i = 0; i < issues.length; i++) {
-        var issue = issues[i];
-        table.append(create_new_issue(issue));
-    }
-
-    var statsPanel = getSourceStatsPanel(projectName, objects);
-
-    panelHeading.html(projectName);
-    panelBody.append(statsPanel);
-    panelBody.append(showIssues);
-    panelBody.append(table);
-
-    project.append(panelHeading);
-    project.append(panelBody);
-
-    return project;
+    return panel;
 }
 
 function getClosedIssueCount(objects) {
-    var count = 0;
+    var closedIssues = objects.filter(function(val) {
+        return val.status == "closed";
+    });
 
-    var i = 0;
-    for (i = 0; i < objects.length; i++) {
-        if (objects[i].status == "closed") {
-            count++
-        }
-    }
-
-    return count;
+    return closedIssues.length;
 }
 
-function getPercentage(closed, total) {
-    return closed / total * 100
-}
-
-function getStatsPanel(projectName, objects) {
-    var issues = getProjectIssues(projectName, objects);
-
+function getStatsPanel(projectName, issues) {
     var panelHeading;
     var panelBody;
     var stats = $("<div>");
@@ -271,9 +171,9 @@ function getStatsPanel(projectName, objects) {
     var closedCount = getClosedIssueCount(issues);
 
     progressBar.addClass("progress-bar");
-    if (closedCount == issues.length) {
+    if (closedCount === issues.length) {
         progressBar.addClass("progress-bar-success");
-    } else if (closedCount == 0) {
+    } else if (closedCount === 0) {
         progressBar.addClass("progress-bar-danger");
     } else {
         progressBar.addClass("progress-bar-warning");
@@ -298,107 +198,8 @@ function getStatsPanel(projectName, objects) {
 
     return stats;
 }
-
-
-function getIssuesStatsPanel(projectName, objects) {
-    var issues = objects;
-
-    var panelHeading;
-    var panelBody;
-    var stats = $("<div>");
-    panelHeading = $("<div>");
-    panelBody = $("<div>");
-
-    stats.addClass("panel");
-    stats.addClass("panel-default");
-
-    panelHeading.addClass("panel-heading");
-    panelBody.addClass("panel-body");
-    var closedBar = $("<div>");
-    closedBar.addClass("progress");
-    var progressBar = $("<div>");
-    var closedCount = getClosedIssueCount(issues);
-
-    progressBar.addClass("progress-bar");
-    if (closedCount == issues.length) {
-        progressBar.addClass("progress-bar-success");
-    } else if (closedCount == 0) {
-        progressBar.addClass("progress-bar-danger");
-    } else {
-        progressBar.addClass("progress-bar-warning");
-    }
-    var s = $("<span>");
-    s.html(closedCount + " / " + issues.length);
-    s.attr("style", "text-align:center; width: 100%; position: absolute;");
-    closedBar.append(s);
-    progressBar.attr("role", "progressbar");
-    progressBar.attr("aria-valuenow", closedCount);
-    progressBar.attr("aria-valuemin", "0");
-    progressBar.attr("aria-valuemax", issues.length);
-    progressBar.attr("style", "min-width: 1em; width:" + closedCount / issues.length * 100 + "%;");
-
-    closedBar.append(progressBar);
-    panelBody.append(closedBar);
-
-    panelHeading.html("Statistics");
-    stats.append(panelHeading);
-    stats.append(panelBody);
-
-    return stats;
-}
-
-
-function getSourceStatsPanel(projectName, objects) {
-    var issues = getSourceIssues(projectName, objects);
-
-    var panelHeading;
-    var panelBody;
-    var stats = $("<div>");
-    panelHeading = $("<div>");
-    panelBody = $("<div>");
-
-    stats.addClass("panel");
-    stats.addClass("panel-default");
-
-    panelHeading.addClass("panel-heading");
-    panelBody.addClass("panel-body");
-    var closedBar = $("<div>");
-    closedBar.addClass("progress");
-    var progressBar = $("<div>");
-    var closedCount = getClosedIssueCount(issues);
-
-    progressBar.addClass("progress-bar");
-    if (closedCount == issues.length) {
-        progressBar.addClass("progress-bar-success");
-    } else if (closedCount == 0) {
-        progressBar.addClass("progress-bar-danger");
-    } else {
-        progressBar.addClass("progress-bar-warning");
-    }
-    var s = $("<span>");
-    s.html(closedCount + " / " + issues.length);
-    s.attr("style", "text-align:center; width: 100%; position: absolute;");
-    closedBar.append(s);
-    progressBar.attr("role", "progressbar");
-    progressBar.attr("aria-valuenow", closedCount);
-    progressBar.attr("aria-valuemin", "0");
-    progressBar.attr("aria-valuemax", issues.length);
-    progressBar.attr("style", "min-width: 2em; width:" + closedCount / issues.length * 100 + "%;");
-
-    closedBar.append(progressBar);
-    panelBody.append(closedBar);
-
-    panelHeading.html("Statistics");
-    stats.append(panelHeading);
-    stats.append(panelBody);
-
-    return stats;
-}
-
 
 function inArray(item, array) {
-    'use strict';
-
     return $.inArray(item, array) > -1;
 }
 
@@ -428,9 +229,7 @@ function getSources(objects) {
     return projects;
 }
 
-function groupIssuesByProject() {
-    var issues = get_demo_JSON();
-
+function groupIssuesByProject(issues) {
     var projects = getProjects(issues);
 
     var i;
@@ -443,9 +242,7 @@ function groupIssuesByProject() {
 
 }
 
-function groupIssuesBySource() {
-    var issues = get_demo_JSON();
-
+function groupIssuesBySource(issues) {
     var projects = getSources(issues);
 
     var i;
@@ -461,16 +258,18 @@ function groupIssuesBySource() {
 function groupIssuesBy(key) {
     var issueList = $("#main-list-panel-body");
     issueList.empty();
+    
+    var issues = get_demo_JSON();
 
     switch (key) {
         case "Project":
-            groupIssuesByProject();
+            groupIssuesByProject(issues);
             break;
         case "Issue":
-                groupIssuesByIssue();
+                groupIssuesByIssue(issues);
             break;
         case "Source":
-            groupIssuesBySource();
+            groupIssuesBySource(issues);
             break;
     }
 }
@@ -479,7 +278,7 @@ function groupIssuesByIssue() {
     var issues = get_demo_JSON();
     var issueList = $("#main-list-panel-body");
     var table = create_issue_table();
-    var stats = getIssuesStatsPanel("", issues);
+    var stats = getStatsPanel("", issues);
     issueList.append(stats);
     issues.sort(compareNativeId);
     for (i = 0; i < issues.length; i++) {
@@ -491,7 +290,7 @@ function groupIssuesByIssue() {
 
 function compareNativeId(a, b) {
     if (parseInt(a.native_id) < parseInt(b.native_id)) {
-        return -1
+        return -1;
     } else if (parseInt(a.native_id) > parseInt(b.native_id)) {
         return 1;
     }
@@ -499,7 +298,6 @@ function compareNativeId(a, b) {
 }
 
 $(document).ready(function() {
-    var i;
     var groupBy = $("#group-by");
     groupBy.change(function() {
         $("#filter").val("");
@@ -508,7 +306,6 @@ $(document).ready(function() {
 
 
     $('#filter').keyup(function () {
-        console.log("working");
         var rex = new RegExp($(this).val(), 'i');
         $('.issue-tr').hide();
         $('.issue-tr').filter(function () {
