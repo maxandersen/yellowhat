@@ -29,6 +29,8 @@ ADD . /yellowhat
 
 WORKDIR /yellowhat
 RUN chown -R yellow:yellow .
+RUN chmod -R 0777 /yellowhat
+
 USER yellow
 
 RUN bundle install
