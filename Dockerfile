@@ -31,7 +31,9 @@ WORKDIR /yellowhat
 RUN chown -R yellow:yellow .
 RUN chmod -R 0777 /yellowhat
 
-USER yellow
+USER 1000
 
 RUN bundle install
+RUN chmod -R 0777 .gem
+
 CMD ruby server.rb
